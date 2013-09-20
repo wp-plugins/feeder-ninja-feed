@@ -1,4 +1,4 @@
-=== Feeder Ninja: Create and add RSS & Social feed to your website on-the-fly ===
+=== Feeder Ninja: Create and add RSS & Social feeds to your website on-the-fly ===
 Contributors: CommonNinja
 Donate link: http://commoninja.com
 Tags: Facebook widget, Twitter widget, Social Media, Feeds, Feeder Ninja, Ninja, Common Ninja, Instagram widget, Youtube widget, Social Media Feed, Social Feed Generator, import social feeds, Twitter hashtag, display social media, Pinterest widget, integrate Pinterest, RSS widget, RSS Feeds, Custom Feeds, custom social feeds, social feeds plugin, Facebook feed, RSS feed, Twitter feed, Pinterest feed
