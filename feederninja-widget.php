@@ -44,6 +44,18 @@ add_action( 'widgets_init', create_function( '', 'register_widget("feederninja_w
 
 	} // end constructor
 
+	public function curPageURL() {
+		$pageURL = 'http';
+		if ($_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
+			$pageURL .= "://";
+		if ($_SERVER["SERVER_PORT"] != "80") {
+			$pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
+		} else {
+			$pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+		}
+		return $pageURL;
+	}
+
 	/**
 	 * Front-end display of widget.
 	 *
@@ -101,19 +113,7 @@ add_action( 'widgets_init', create_function( '', 'register_widget("feederninja_w
         		$r['feed_guid'] = $feed_guid_tmp[count($feed_guid_tmp) - 1];
         	}
 
-        	function curPageURL() {
-				$pageURL = 'http';
-				if ($_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
-					$pageURL .= "://";
-				if ($_SERVER["SERVER_PORT"] != "80") {
-					$pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
-				} else {
-					$pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
-				}
-				return $pageURL;
-			}
-
-			$siteUrl = curPageURL();
+			$siteUrl = $this->curPageURL();
             ?>
 			<div class="feederninja_widget">
 				<iframe style="width: 100%; height: <?php echo $r['height'] ?>; border: none; margin: 0; padding: 0;" src="http://feederninja.com/wordpress/feed/<?php echo $r['feed_guid'] ?>?fnurl=<?php echo $siteUrl ?>" frameborder="0"></iframe>
