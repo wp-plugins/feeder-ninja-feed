@@ -4,7 +4,7 @@ Donate link: http://commoninja.com
 Tags: Facebook widget, Twitter widget, Social Media, Feeds, Feeder Ninja, Ninja, Common Ninja, Instagram widget, Youtube widget, Social Media Feed, Social Feed Generator, import social feeds, Twitter hashtag, display social media, Pinterest widget, integrate Pinterest, RSS widget, RSS Feeds, Custom Feeds, custom social feeds, social feeds plugin, Facebook feed, RSS feed, Twitter feed, Pinterest feed
 Requires at least: 3.0
 Tested up to: 3.6.1
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -79,6 +79,9 @@ Sign up to [Feeder Ninja](http://feederninja.com), create a new feed and install
 
 
 == Changelog ==
+
+= 1.0.1 =
+* Supporting https protocols
 
 = 1.0.0 =
 * Initial Version

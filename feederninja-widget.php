@@ -1,9 +1,9 @@
 <?php
 /*
  * Plugin Name: Feeder Ninja feeds
- * Plugin URI: http://feederninja.com
+ * Plugin URI: https://www.feederninja.com
  * Description: Add beautiful <strong>RSS & Social feeds</strong> to your Wordpress website. We're supporting RSS, Facebook, Twitter, YouTube, Vimeo, Thumblr, Pinterest and Wordpress feeds!
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Common Ninja
  * Author URI: http://commoninja.com/
  * License: GPLv2 or later
@@ -45,9 +45,7 @@ add_action( 'widgets_init', create_function( '', 'register_widget("feederninja_w
 	} // end constructor
 
 	public function curPageURL() {
-		$pageURL = 'http';
-		if ($_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
-			$pageURL .= "://";
+		$pageURL = 'https://';
 		if ($_SERVER["SERVER_PORT"] != "80") {
 			$pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
 		} else {
@@ -116,7 +114,7 @@ add_action( 'widgets_init', create_function( '', 'register_widget("feederninja_w
 			$siteUrl = $this->curPageURL();
             ?>
 			<div class="feederninja_widget">
-				<iframe style="width: 100%; height: <?php echo $r['height'] ?>; border: none; margin: 0; padding: 0;" src="http://feederninja.com/wordpress/feed/<?php echo $r['feed_guid'] ?>?fnurl=<?php echo $siteUrl ?>" frameborder="0"></iframe>
+				<iframe style="width: 100%; height: <?php echo $r['height'] ?>; border: none; margin: 0; padding: 0;" src="https://www.feederninja.com/wordpress/feed/<?php echo $r['feed_guid'] ?>?fnurl=<?php echo $siteUrl ?>" frameborder="0"></iframe>
 			</div>
             <?php
         }
@@ -173,7 +171,7 @@ add_action( 'widgets_init', create_function( '', 'register_widget("feederninja_w
 		<p>
 			<label for="<?php echo $this->get_field_id( 'feed_guid' ); ?>"><?php _e('Feed ID', 'framework') ?> </label>
 			<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'feed_guid' ); ?>" name="<?php echo $this->get_field_name( 'feed_guid' ); ?>" value="<?php echo $instance['feed_guid']; ?>" />
-            <br><small style="display: block; text-align: right; margin: 3px 5px 0;"><a href="http://feederninja.com/wordpress" target="_blank">what's this?</a></small>
+            <br><small style="display: block; text-align: right; margin: 3px 5px 0;"><a href="https://www.feederninja.com/wordpress" target="_blank">what's this?</a></small>
 		</p>
 
 		<!-- Height: Text Input -->
