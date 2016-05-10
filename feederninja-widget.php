@@ -3,7 +3,7 @@
  * Plugin Name: Feeder Ninja feeds
  * Plugin URI: https://www.feederninja.com
  * Description: Add beautiful <strong>RSS & Social feeds</strong> to your Wordpress website. We're supporting RSS, Facebook, Twitter, YouTube, Vimeo, Thumblr, Pinterest and Wordpress feeds!
- * Version: 1.0.1
+ * Version: 1.0.2
  * Author: Common Ninja
  * Author URI: http://commoninja.com/
  * License: GPLv2 or later
@@ -87,7 +87,7 @@ add_action( 'widgets_init', create_function( '', 'register_widget("feederninja_w
 		echo $after_widget;
 	}
 
-    public function render( $args ) {
+    public function render( $args, $return=false ) {
         $r = wp_parse_args( $args
                             , array('feed_guid' => '7564656dc11643eb8ac657f42afc43c1'
                                     ,'height' => '0'
@@ -112,11 +112,17 @@ add_action( 'widgets_init', create_function( '', 'register_widget("feederninja_w
         	}
 
 			$siteUrl = $this->curPageURL();
-            ?>
-			<div class="feederninja_widget">
-				<iframe style="width: 100%; height: <?php echo $r['height'] ?>; border: none; margin: 0; padding: 0;" src="https://www.feederninja.com/wordpress/feed/<?php echo $r['feed_guid'] ?>?fnurl=<?php echo $siteUrl ?>" frameborder="0"></iframe>
-			</div>
-            <?php
+            $html =	'<div class="feederninja_widget">' .
+					'<iframe style="width:100%;height:' . $r['height'] . ';border:none;margin:0;padding:0;" ' .
+            		'src="https://www.feederninja.com/wordpress/feed/' . $r['feed_guid'] . '?fnurl=' . $siteUrl . '" ' .
+            		'frameborder="0"></iframe>' .
+					'</div>';
+			if( $return ) {
+				/** A WP shortcode should return the content, not echo it **/
+				return $html;
+			} else {
+				echo $html;
+			}       
         }
     }
 
@@ -215,10 +221,10 @@ function feederninja_shortcode( $atts ) {
 
     $rm_widget = new FeederNinja_Widget();
     
-    $rm_widget->render( array(
+    return $rm_widget->render( array(
         'feed_guid' => $feed_guid,
         'height' => $height
-    ) );
+    ), true );
 }
 add_shortcode( 'feederninja', 'feederninja_shortcode' );
 
