@@ -3,7 +3,7 @@
  * Plugin Name: Feeder Ninja feeds
  * Plugin URI: https://www.feederninja.com
  * Description: Add beautiful <strong>RSS & Social feeds</strong> to your Wordpress website. We're supporting RSS, Facebook, Twitter, YouTube, Vimeo, Thumblr, Pinterest and Wordpress feeds!
- * Version: 1.0.1
+ * Version: 1.0.2
  * Author: Common Ninja
  * Author URI: http://commoninja.com/
  * License: GPLv2 or later
