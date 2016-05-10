@@ -221,7 +221,7 @@ function feederninja_shortcode( $atts ) {
 
     $rm_widget = new FeederNinja_Widget();
     
-    $rm_widget->render( array(
+    return $rm_widget->render( array(
         'feed_guid' => $feed_guid,
         'height' => $height
     ), true );
